@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="hot-drink.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roast Code - Get Your Code Brutally Reviewed</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" data-aos="fade-down">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-fire"></i>
+                <span><a href="#home" style="text-decoration: none; color: #ff4757;">CodeRoast</a></span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#roast" class="nav-link">Roast</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-menu mobile">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#roast" class="nav-link">Roast</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="hero-title">
+                <span class="fire-text">Roast Your Code</span>
+            </h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Submit your code and get brutally honest feedback from our AI roaster
+            </p>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat">
+                    <span class="stat-number" id="roastCount">1,337</span>
+                    <span class="stat-label">Codes Roasted</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label">Developers Crying</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Savage Level</span>
+                </div>
+            </div>
+            <button class="cta-button" onclick="scrollToRoast()" data-aos="zoom-in" data-aos-delay="600">
+                <i class="fas fa-fire"></i>
+                Start Roasting
+            </button>
+        </div>
+    </section>
+
+    <!-- Roast Section -->
+    <section id="roast" class="roast-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <i class="fas fa-code"></i>
+                Submit Your Code for Roasting
+            </h2>
+
+            <div class="roast-container">
+                <div class="code-input-section glass-card" data-aos="fade-right">
+                    <div class="input-header">
+                        <h3>Paste Your Code Here</h3>
+                        <div class="language-selector">
+                            <select id="languageSelect">
+                                <option value="javascript">JavaScript</option>
+                                <option value="python">Python</option>
+                                <option value="java">Java</option>
+                                <option value="cpp">C++</option>
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                                <option value="php">PHP</option>
+                            </select>
+                        </div>
+                    </div>
+                    <textarea id="codeInput" placeholder="// Paste your code here and prepare for the roast...
+function badCode() {
+    var x = 1;
+    var y = 2;
+    var z = x + y;
+    return z;
+}"></textarea>
+
+                    <div class="roast-options" data-aos="fade-up" data-aos-delay="200">
+                        <h4>Roast Intensity</h4>
+                        <div class="intensity-buttons">
+                            <button class="intensity-btn" data-intensity="mild">
+                                <i class="fas fa-smile"></i>
+                                Mild
+                            </button>
+                            <button class="intensity-btn active" data-intensity="medium">
+                                <i class="fas fa-meh"></i>
+                                Medium
+                            </button>
+                            <button class="intensity-btn" data-intensity="savage">
+                                <i class="fas fa-skull"></i>
+                                Savage
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="roast-categories" data-aos="fade-up" data-aos-delay="300">
+                        <h4>Roast Categories</h4>
+                        <div class="category-checkboxes">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked data-category="performance">
+                                <span class="checkmark"></span>
+                                Performance Issues
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked data-category="style">
+                                <span class="checkmark"></span>
+                                Code Style
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked data-category="logic">
+                                <span class="checkmark"></span>
+                                Logic Problems
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" data-category="security">
+                                <span class="checkmark"></span>
+                                Security Issues
+                            </label>
+                        </div>
+                    </div>
+
+                    <button id="roastButton" class="roast-btn" data-aos="zoom-in" data-aos-delay="400">
+                        <span><i class="fas fa-fire"></i> Roast My Code!</span>
+                    </button>
+                </div>
+
+                <div class="roast-output-section glass-card" data-aos="fade-left">
+                    <div class="output-header">
+                        <h3>Roast Results</h3>
+                        <div class="roast-score" id="roastScore">
+                            <span class="score-label">Roast Score:</span>
+                            <span class="score-value">-/10</span>
+                        </div>
+                    </div>
+
+                    <div id="roastOutput" class="roast-output">
+                        <div class="placeholder-roast">
+                            <i class="fas fa-fire-flame-curved"></i>
+                            <p>Submit your code above to see the roast results here!</p>
+                            <p class="placeholder-subtitle">Don't worry, we'll be gentle... NOT! 😈</p>
+                        </div>
+                    </div>
+
+                    <div class="roast-actions" id="roastActions" style="display: none;">
+                        <button class="action-btn" onclick="shareRoast()">
+                            <i class="fas fa-share"></i>
+                            Share Roast
+                        </button>
+                        <button class="action-btn" onclick="saveRoast()">
+                            <i class="fas fa-bookmark"></i>
+                            Save Roast
+                        </button>
+                        <button class="action-btn" onclick="newRoast()">
+                            <i class="fas fa-refresh"></i>
+                            New Roast
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <i class="fas fa-gallery-thumbnails"></i>
+                Hall of Shame
+            </h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                The most brutally roasted code snippets
+            </p>
+
+            <div class="gallery-grid">
+                <div class="roast-card glass-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card-header">
+                        <span class="language-tag">JavaScript</span>
+                        <span class="roast-score-badge">9.5/10</span>
+                    </div>
+                    <div class="code-preview">
+                        <code>if (x == true) {
+    return true;
+} else {
+    return false;
+}</code>
+                    </div>
+                    <div class="roast-preview">
+                        "Congratulations! You've successfully written the most verbose way to return a boolean..."
+                    </div>
+                </div>
+
+                <div class="roast-card glass-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card-header">
+                        <span class="language-tag">Python</span>
+                        <span class="roast-score-badge">8.7/10</span>
+                    </div>
+                    <div class="code-preview">
+                        <code>for i in range(len(list)):
+    print(list[i])</code>
+                    </div>
+                    <div class="roast-preview">
+                        "Someone clearly missed the memo about Python being readable..."
+                    </div>
+                </div>
+
+                <div class="roast-card glass-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card-header">
+                        <span class="language-tag">Java</span>
+                        <span class="roast-score-badge">10/10</span>
+                    </div>
+                    <div class="code-preview">
+                        <code>String s = new String("Hello");
+if (s == "Hello") {
+    System.out.println("Match");
+}</code>
+                    </div>
+                    <div class="roast-preview">
+                        "Perfect 10! This code breaks so many rules, it should be illegal..."
+                    </div>
+                </div>
+
+                <div class="roast-card glass-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="card-header">
+                        <span class="language-tag">C#</span>
+                        <span class="roast-score-badge">9.2/10</span>
+                    </div>
+                    <div class="code-preview">
+                        <code>public void DoSomething() {
+    // TODO: Implement logic
+    // This is a placeholder
+}</code>
+                    </div>
+                    <div class="roast-preview">
+                        "Your 'TODO' comments are more complete than your actual code. Impressive!"
+                    </div>
+                </div>
+
+                <div class="roast-card glass-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="card-header">
+                        <span class="language-tag">PHP</span>
+                        <span class="roast-score-badge">8.0/10</span>
+                    </div>
+                    <div class="code-preview">
+                        <code>$data = $_GET['input'];
+echo "Input: " . $data;</code>
+                    </div>
+                    <div class="roast-preview">
+                        "SQL Injection? Cross-Site Scripting? Why choose when you can have both!"
+                    </div>
+                </div>
+
+                <div class="roast-card glass-card" data-aos="flip-left" data-aos-delay="600">
+                    <div class="card-header">
+                        <span class="language-tag">CSS</span>
+                        <span class="roast-score-badge">7.5/10</span>
+                    </div>
+                    <div class="code-preview">
+                        <code>.element {
+    width: 100px !important;
+    height: 100px !important;
+    color: red !important;
+}</code>
+                    </div>
+                    <div class="roast-preview">
+                        "The '!important' flags are screaming for help, and so am I."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <i class="fas fa-quote-right"></i>
+                What Developers Say
+            </h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Hear from those who dared to get their code roasted
+            </p>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <p>"CodeRoast didn't just roast my code, it incinerated my ego. 10/10 would recommend for a good
+                        laugh and some painful truths."</p>
+                    <div class="testimonial-author">
+                        Jane Doe <span>Lead Developer at TechCorp</span>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <p>"I thought my code was clean. CodeRoast proved me wrong, hilariously. My code is better now, my
+                        feelings... not so much."</p>
+                    <div class="testimonial-author">
+                        John Smith <span>Senior Engineer at Innovate Solutions</span>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <p>"Brutal, honest, and surprisingly effective. CodeRoast is like that one friend who tells you what
+                        you need to hear, not what you want to hear."</p>
+                    <div class="testimonial-author">
+                        Alice Johnson <span>Freelance Programmer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="400">
+                    <p>"My code was a mess, and CodeRoast didn't hold back. I cried, I laughed, and then I refactored.
+                        Thank you, I guess?"</p>
+                    <div class="testimonial-author">
+                        Bob Williams <span>Junior Dev, Learning the Hard Way</span>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="500">
+                    <p>"If you need a reality check on your coding skills, this is it. It's like a code review, but with
+                        more sarcasm and less HR."</p>
+                    <div class="testimonial-author">
+                        Sarah Davis <span>Software Architect</span>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="600">
+                    <p>"My therapist told me to embrace constructive criticism. CodeRoast gave me criticism, but I'm
+                        still looking for the 'constructive' part. Still fun though!"</p>
+                    <div class="testimonial-author">
+                        Michael Brown <span>Full-Stack Developer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="700">
+                    <p>"CodeRoast called my code 'prehistoric'. I didn't know JavaScript could cry, but here we are.
+                        11/10 roasting."</p>
+                    <div class="testimonial-author">
+                        Emma Lee <span>Frontend Dev & Roast Survivor</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="800">
+                    <p>"I submitted my proudest project. CodeRoast replied with 'Nice attempt, did you use a potato to
+                        code this?'"</p>
+                    <div class="testimonial-author">
+                        Daniel Kim <span>Backend Developer</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="900">
+                    <p>"CodeRoast turned my spaghetti code into ravioli — still pasta, but slightly more organized.
+                        Thanks... I think?"</p>
+                    <div class="testimonial-author">
+                        Priya Nair <span>DevOps Engineer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content" data-aos="fade-up">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    About CodeRoast
+                </h2>
+                <p class="about-text">
+                    CodeRoast is the ultimate destination for developers who want honest, brutal feedback on their code.
+                    Our AI-powered roasting engine analyzes your code for performance issues, style problems, logic
+                    errors,
+                    and security vulnerabilities - all while delivering feedback with a healthy dose of humor and
+                    sarcasm.
+                </p>
+                <div class="features-grid" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature glass-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI-Powered</h3>
+                        <p>Advanced algorithms analyze your code</p>
+                    </div>
+                    <div class="feature glass-card">
+                        <i class="fas fa-laugh"></i>
+                        <h3>Humorous</h3>
+                        <p>Feedback that's brutal but entertaining</p>
+                    </div>
+                    <div class="feature glass-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Educational</h3>
+                        <p>Learn from your mistakes</p>
+                    </div>
+                    <div class="feature glass-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Community</h3>
+                        <p>Share and learn with other developers</p>
+                    </div>
+                    <div class="feature glass-card" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fas fa-fire-alt"></i>
+                        <h3>Savage Intensity</h3>
+                        <p>Choose your level of verbal destruction</p>
+                    </div>
+                    <div class="feature glass-card" data-aos="fade-up" data-aos-delay="600">
+                        <i class="fas fa-file-code"></i>
+                        <h3>Multi-Language</h3>
+                        <p>Roasts for various programming languages</p>
+                    </div>
+                    <div class="feature glass-card" data-aos="fade-up" data-aos-delay="700">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Shareable Roasts</h3>
+                        <p>Embrace the shame, share with friends</p>
+                    </div>
+                    <div class="feature glass-card" data-aos="fade-up" data-aos-delay="800">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Hall of Shame</h3>
+                        <p>See the worst of the worst (or best?)</p>
+                    </div>
+                    <div class="feature glass-card" data-aos="fade-up" data-aos-delay="900">
+                        <i class="fas fa-bug"></i>
+                        <h3>Bug Hunter</h3>
+                        <p>Sniffs out sneaky bugs hiding in your logic</p>
+                    </div>
+                    <div class="feature glass-card" data-aos="fade-up" data-aos-delay="1000">
+                        <i class="fas fa-code-branch"></i>
+                        <h3>Version Roast</h3>
+                        <p>Different roasts for each commit – track your pain</p>
+                    </div>
+                    <div class="feature glass-card" data-aos="fade-up" data-aos-delay="1100">
+                        <i class="fas fa-brain"></i>
+                        <h3>Over-Engineer Detector</h3>
+                        <p>Tells you when you’ve turned a toaster into a spaceship</p>
+                    </div>
+                    <div class="feature glass-card" data-aos="fade-up" data-aos-delay="1200">
+                        <i class="fas fa-keyboard"></i>
+                        <h3>Copy-Paste Radar</h3>
+                        <p>Shames code that's obviously StackOverflow-sourced</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-fire"></i>
+                    <span>CodeRoast</span>
+                </div>
+                <p>&copy; 2025 CodeRoast <b>|</b> All rights reserved.</p>
+                <p>No developers were permanently harmed in the making of this site.</p>
+                <p>Made with <b style="font-weight: bold; color: whitesmoke;">NO FUCKING LOVE & MERCY</b> by <a
+                        href="https://royz-portfolio.netlify.app/" target="_blank" title="admin website"
+                        style="color: whitesmoke; font-size: 1.1em; font-style: italic; font-weight: bold;">THIS
+                        GUY</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="fire-loader">
+                <i class="fas fa-fire"></i>
+            </div>
+            <p>Preparing your roast...</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js">
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
